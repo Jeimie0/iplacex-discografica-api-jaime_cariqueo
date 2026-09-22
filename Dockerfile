@@ -5,7 +5,7 @@ COPY . .
 RUN gradle clean bootWar -x test --no-daemon
 
 # Stage 2: ejecutar el WAR con OpenJDK 21
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 COPY --from=build /app/build/libs/discografia-1.war app.war
 EXPOSE 8080
